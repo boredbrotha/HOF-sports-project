@@ -2,40 +2,6 @@ import requests
 import time
 import pandas as pd
 
-"""
-username = "sallyevesilber"
-
-getUserID = "https://instagram-api-20231.p.rapidapi.com/api/get_user_id/{}".format(username)
-
-headers = {
-	"X-RapidAPI-Key": "",
-	"X-RapidAPI-Host": "instagram-api-20231.p.rapidapi.com"
-}
-
-response = requests.get(getUserID, headers=headers)
-
-userID=response.json()['data']['id']
-
-fCount = response.json()['data']['followers']
-
-getFollowers = "https://instagram-api-20231.p.rapidapi.com/api/user_followers/{}".format(userID)
-
-
-timesToIterate = fCount%100
-followerList = []
-querystring = None
-for i in range(1,timesToIterate):
-    getFollowers = "https://instagram-api-20231.p.rapidapi.com/api/user_followers/{}".format(userID)
-    
-    response = requests.get(getFollowers, headers=headers,params= querystring)
-    querystring = {"max_id":"{}".format(response.json()['data']['next_max_id'])}
-
-    for i in range(len(response.json()['data']['users'])):
-        followerList.append(response.json()['data']['users'][i]['username'])
-    time.sleep(30)
-    
-print("done")
-"""
 
 def outputFollowers(athDict,accTP):
     """
