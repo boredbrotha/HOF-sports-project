@@ -1,7 +1,9 @@
 import requests
 import time
 import pandas as pd
+import numpy as np
 from sys import exit
+
 
 
 def outputFollowers(athDict,accTP):
@@ -96,23 +98,124 @@ def main():
     'cadenowik': [],
     'vin_cognetta': [],
     'jordan_waterhouse03': [],
+    'owen_fallon': [],
+    'nhalnbk7': [],
+    'vzelisko': [],
+    'josh_ilo': [],
+    'dcunningham._': [],
+    'abrownlee21': [],
+    'claydenstorff': [],
+    'alexdobbins14': [],
+    'higlejonathon': [],
+    'danieldesantis4': [],
+    'oliverkovass': [],
+    'jimmy.stines': [],
+    'alex.stackhouse': [],
+    'treyfabrocini': [],
+    'mason.marchinsky': [],
+    '_joshstegich': [],
+    'lariviere.christian': [],
+    '_sean_carr': [],
+    'michael_ballenger': [],
+    'jonadamson11': [],
+    'hdirico21': [],
+    'nimer_26': [],
+    'cadecormier7': [],
+    'chaaunce': [],
+    'jonathanbearden2': [],
+    'eddiedreher': [],
+    'willsolis27': [],
+    'collin.j.murphy': [],
+    'matthewwiley_': [],
+    'charliep_22_': [],
+    'andrew_brown_37': [],
+    'colinluse': [],
+    'michaelmaguire48': [],
+    '_jeffmoore': [],
+    'nj.austria': [],
+    'willisgauze': [],
+    'cole_graney36': [],
+    'caseycampbell00': [],
+    'connor_kratzert': [],
+    'cburzynski55': [],
+    'thegrandcanyon_56': [],
+    'matthewrussell20': [],
+    'samsecrest': [],
+    'gmcclung_': [],
+    'kevin_stone123456': [],
+    'brianstone7587': [],
+    'austin.smith7.3': [],
+    'jacksonwalsh20': [],
+    'h.slack_': [],
+    'willsforman': [],
+    'alex_sket21': [],
+    't.dunn_': [],
+    'trevor.goodrich': [],
+    'prestona_73': [],
+    'kadyn0101': [],
+    'loganyater3': [],
+    '__jwill3': [],
+    'evangelo_24': [],
+    'preston.fisk': [],
+    'jthallett15': [],
+    'casper_rublowsky': [],
+    'mpmead25': [],
+    'liam.mendham': [],
+    'davidsonojump': [],
+    'shawn.ugbana': [],
+    'jackp_dee': [],
+    'ryanlallly': []
 }
     
-    outputFollowers(athleteDict,athleteDict.keys())
+    #outputFollowers(athleteDict,athleteDict.keys())
 
-    data = pd.DataFrame.from_dict(athleteDict, orient= 'index')
-    data = data.transpose()
-    data.to_excel("output.xlsx")
+    # data = pd.DataFrame.from_dict(athleteDict, orient= 'index')
+    # data = data.transpose()
+    # data.to_excel("output.xlsx")
+
+    """
+    Now that I have this gigantic list of names, for every person on it, I should give:
+
+        -Their follower count
+        -Amt of followers that overlap with the rest of the group
+        
+    At the end, I should give totals: 
+        --Total aggregate amount
+        --Average amount of overlapping followers
+
+    """
+
+    #Read that excel jizzle
+    # df = pd.read_excel("./output.xlsx")
+    # uniquedf= {}
+    # for col in df:
+    #     uniquedf[col] = df[col].unique().tolist()
+
+
+
+    # for key in uniquedf:
+    #     for i in uniquedf[key]:
+    #         if i == np.nan:
+    #             uniquedf[key].remove(i)
+
+    # uniquedf = pd.DataFrame.from_dict(uniquedf, orient= 'index')
+    # uniquedf = uniquedf.transpose()
+    # uniquedf.to_excel("uniqueoutput.xlsx")
+
+    
+    oFinder=pd.read_csv("occurrenceFinder.csv")
+
+    for col in oFinder:
+        print(col)
+        #for entry in col:
+            # if entry == np.nan:
+            #     continue
+            # else:
+            #     print(entry,": ",oFinder.value_counts()[entry])
+            #print(entry)
+    
+    
+
+
     
 main()
-
-
-
-"""
-    athleteDict = {"billyguzzo_": [],
-           "mrrelentess": [], 
-           "cadenowik": [], 
-           "vin_cognetta": [] ,
-           "jordan_waterhouse03": [],
-           "kingadinkra" : []}
-"""
