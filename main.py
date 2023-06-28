@@ -18,7 +18,7 @@ def outputFollowers(athDict,accTP):
     """
 
     headers = {
-	"X-RapidAPI-Key": "cdbbb8b397msh7ad25518cbc088ep1bba24jsn2e54fcaaac66",
+	"X-RapidAPI-Key": "",
 	"X-RapidAPI-Host": "instagram-api-20231.p.rapidapi.com"
     }
 
@@ -185,7 +185,7 @@ def main():
 
     """
 
-    #Read that excel jizzle
+    #Read the excel
     # df = pd.read_excel("./output.xlsx")
     # uniquedf= {}
     # for col in df:
