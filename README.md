@@ -19,7 +19,3 @@
 * Create a function that checks if a sponsored image has been posted
 
 
-
-##Things to take note of
-
-* Engagement Rate = sum 
