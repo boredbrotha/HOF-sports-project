@@ -186,10 +186,6 @@ def main():
 
 
 
-<<<<<<< HEAD
-=======
-    #Read the excel
->>>>>>> b5c20b6a94a07c260a19ed0093099dde1e114f6a
     # df = pd.read_excel("./output.xlsx")
     # uniquedf= {}
     # for col in df:
