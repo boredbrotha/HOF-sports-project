@@ -76,8 +76,6 @@ def outputFollowers(athDict,accTP):
                     print("Debug: appended to dictionary!")
 
 
-                    #time.sleep(15)
-
                     
                 except:
                     print("An error has occurred. Here's what the API returns:")
@@ -166,13 +164,6 @@ def main():
     'jackp_dee': [],
     'ryanlallly': []
 }
-    
-    #outputFollowers(athleteDict,athleteDict.keys())
-
-    # data = pd.DataFrame.from_dict(athleteDict, orient= 'index')
-    # data = data.transpose()
-    # data.to_excel("output.xlsx")
-
     """
     Now that I have this gigantic list of names, for every person on it, I should give:
 
@@ -184,8 +175,17 @@ def main():
         --Average amount of overlapping followers
 
     """
+    
+    outputFollowers(athleteDict,athleteDict.keys())
 
-    #Read that excel jizzle
+    data = pd.DataFrame.from_dict(athleteDict, orient= 'index')
+    data = data.transpose()
+    data.to_excel("output.xlsx")
+
+
+
+
+
     # df = pd.read_excel("./output.xlsx")
     # uniquedf= {}
     # for col in df:
@@ -203,19 +203,6 @@ def main():
     # uniquedf.to_excel("uniqueoutput.xlsx")
 
     
-    oFinder=pd.read_csv("occurrenceFinder.csv")
-
-    for col in oFinder:
-        print(col)
-        #for entry in col:
-            # if entry == np.nan:
-            #     continue
-            # else:
-            #     print(entry,": ",oFinder.value_counts()[entry])
-            #print(entry)
-    
-    
-
 
     
 main()
