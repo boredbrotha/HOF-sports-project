@@ -3,7 +3,7 @@
 
 ## What is HOFlib?
 
-HOFlib is a general auxiliary library that assists in the general operations of HOF Sports.
+HOFlib is an auxiliary library that assists in the general operations of HOF Sports.
 
 
 ## Methods
