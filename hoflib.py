@@ -76,7 +76,7 @@ class HOFlib:
                 querystring = None
 
 
-                while True:
+                while True: #The function is now going to count followers with the API until it can no longer do so.
                     try:
                         r2 = requests.get(getFollowers, headers=headers, params= querystring)
                         
@@ -98,13 +98,12 @@ class HOFlib:
 
 
                         
-                    except:
+                    except: #When it reaches an error, it'll exit the loop and print an error 
                         print("An error has occurred. Here's what the API returns:")
                         print(r2.json())
                         exit()
 
             else:
-                pass
                 athDict[cAthlete].append(fCount)
 
     def export(self, athDict, eType = False):
@@ -119,14 +118,14 @@ class HOFlib:
         
         data = data.transpose()
 
-        if eType == False:
+        if eType == False: #If user wants a csv
             
-            data.to_csv("./output.csv")
+            data.to_csv("./output.csv") 
         
-        elif eType == True:
+        elif eType == True: #If user wants an excel file
             data.to_excel("./outpus.xlsx")
 
-        else:
+        else: #If they didn't follow the parameters of the function
             print("You fucked up.")
             exit()
         
@@ -139,7 +138,7 @@ class HOFlib:
         3. If there's a similarity, it returns True. Else, it returns False.
         """
         
-        img = cv.imread(storyImagePath, cv.IMREAD_GRAYSCALE)
+        img = cv.imread(storyImagePath, cv.IMREAD_GRAYSCALE) #We read in the image we're tryna compare to the template images
 
         assert img is not None, "file could not be read, check with os.path.exists()"
 
@@ -153,13 +152,19 @@ class HOFlib:
         
         tempList = [temp0, temp1, temp2]
 
+        """
+         NOTE FOR WHOEVER USES THIS IN THE FUTURE: You're going to have to manually set temp depending on the context. If there are 4 advertisement images, there will be 4 temps, and so forth.
+        -------------------------------------------
+        
+        """
+
         assert temp0 is not None, "file could not be read, check with os.path.exists()"
         assert temp1 is not None, "file could not be read, check with os.path.exists()"
         assert temp2 is not None, "file could not be read, check with os.path.exists()"
         
         method = 'cv.TM_SQDIFF_NORMED'
         threshold = .01
-        for i in tempList:
+        for i in tempList: #For each template image, we check if img is similar to them. It returns true if it is. False if not.
             res = cv.matchTemplate(img, i, eval(method))
             print("The threshold: ",np.amin(res))
             if np.amin(res) < threshold:
@@ -183,19 +188,21 @@ class HOFlib:
 
         checkType = input("What kind of media are you looking for? \n 1: Story \n 2: Post \n Input here: ")
 
-        if int(checkType) == 1:
+        # ^^^^ We query to see whether the user wants to look for an athlete's story or IG post.
 
-            for handle in handleList:
+        if int(checkType) == 1: #If user wants a story
+
+            for handle in handleList: #The function goes through every IG handle it's given.
 
                 url = "https://instagram-api-20231.p.rapidapi.com/api/user_stories_from_username/{}".format(handle)
 
-                r1 = requests.get(url, headers=self.headers)
+                r1 = requests.get(url, headers=self.headers) #We call the API to get all the posts
 
-                if (r1.json()['data']['reel'] == None):
+                if (r1.json()['data']['reel'] == None): #If there are none, we return "None" for this athlete
                     athDict[handle].append(None)
                 else:
                     stories = r1.json()['data']['reel']['items']
-                    for s in stories:
+                    for s in stories: #If there are some stories, we iterate through them and check each one to see if it matches with the advertisements we have on file.
 
                         sUrl = s['image_versions2']['candidates'][0]['url']
 
@@ -210,17 +217,21 @@ class HOFlib:
                         else:
                             athDict[handle].append(False)
         
-        elif int(checkType) == 2:
+        elif int(checkType) == 2: #If user wants a post
             for handle in handleList:
                 url = "https://instagram-api-20231.p.rapidapi.com/api/user_posts_from_username/{}".format(handle)
 
                 querystring = {"count":"10"}
 
-                listOfPosts = requests.get(url, headers = self.headers, params = querystring).json()['data']['items']
+                try:
+                    listOfPosts = requests.get(url, headers = self.headers, params = querystring).json()['data']['items']
+                except:
+                    print("Error: Either there's no posts on this account, or the API tweaked. Go ahead and run the program again.")
+                    exit()
 
                 # I eventually need to make it so that it returns None if an IG doesn't have any posts in it, but for now, all is ok.
 
-                for post in listOfPosts:
+                for post in listOfPosts: # For now, we iterate through the first 10 posts of an account
                     sUrl = post['image_versions2']['candidates'][1]['url']
                     data = requests.get(sUrl).content
                     f = open('./images/{}post.jpg'.format(handle),'wb') 
