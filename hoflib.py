@@ -123,10 +123,10 @@ class HOFlib:
             data.to_csv("./output.csv") 
         
         elif eType == True: #If user wants an excel file
-            data.to_excel("./outpus.xlsx")
+            data.to_excel("./output.xlsx")
 
         else: #If they didn't follow the parameters of the function
-            print("You fucked up.")
+            print("You messed up somewhere! Make 'eType' False if you want to export an .xlsx file, and make it True if you want to export a .csv")
             exit()
         
     def compareImages(self, storyImagePath):
