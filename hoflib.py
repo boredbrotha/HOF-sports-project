@@ -1,8 +1,6 @@
 import requests
-import time
 import pandas as pd
 import numpy as np
-import urllib.request
 from sys import exit
 import cv2 as cv
 
@@ -22,8 +20,9 @@ class HOFlib:
         """
         This function creates the dictionaries that the later functions will use. It creates the dictionary from the athlete list attribute of the class.
 
+
         Input: None
-        Output: A DoL
+        Output: A Dictionary of Lists 
         """
         if potentialList == None:
             for i in self.athletes:
@@ -37,7 +36,7 @@ class HOFlib:
     
     def outputFollowers(self, athDict):
         """
-        This essentially takes a list of IG usernames and a dicctionary and fills the dictionary with the IG usernames' followers (per account, of course).
+        This essentially takes a list of Instagram usernames and a dicctionary and fills the dictionary with the IG usernames' followers (per account, of course).
 
         Inputs:
             athDict -> a dictionary containing the athlete handles as the key and an empty array to dump their followers into.
@@ -131,11 +130,11 @@ class HOFlib:
         
     def compareImages(self, storyImagePath):
         """
-        SO, Here's the rundown of how this function works:
+        Here's a quick run-down of how this function works.
 
-        1. It has the parameter that is an athlete's instagram story image
+        1. It has the parameter that is an athlete's assigned image to post on their story
         2. It runs the Template Matching algorithm I found against the template images
-        3. If there's a similarity, it returns True. Else, it returns False.
+        3. If there's a similarity, it returns True. If not, it returns False.
         """
         
         img = cv.imread(storyImagePath, cv.IMREAD_GRAYSCALE) #We read in the image we're tryna compare to the template images
@@ -153,9 +152,12 @@ class HOFlib:
         tempList = [temp0, temp1, temp2]
 
         """
-         NOTE FOR WHOEVER USES THIS IN THE FUTURE: You're going to have to manually set temp depending on the context. If there are 4 advertisement images, there will be 4 temps, and so forth.
+
+
+         NOTE FOR WHOEVER USES THIS IN THE FUTURE: You're going to have to manually hardcode temp depending on the context. If there are 4 advertisement images, there will be 4 temps, and so forth.
         -------------------------------------------
         
+
         """
 
         assert temp0 is not None, "file could not be read, check with os.path.exists()"
@@ -176,11 +178,15 @@ class HOFlib:
             
         """
         note: I should eventually add the functionality for this function to be able to have a list of raw images to compare to that it will push into the compareImages function, but this is good for now.
-        note note: I should also eventually add the functionality of having the user select what type of media the script should look for (story, post, etc). For implementation's sake, stories are fine to initially start with. 
+        note note: I should also eventually add the functionality of having the user select what type of media the script should look for (story, post, etc). For now, stories are fine to initially start with. 
 
+        
 
-        1. For each athlete in the dict, check if they have a story up.
-        2. If they have a story up, run throgh the stories and brute force check if any of them match the set of images we have. If true, append True to the value of the the athlete name key thingy. False if otherwise.
+        How this algorithm works:
+
+            1. For each athlete in the dict, check if they have a story up.
+            2. If they have a story up, run throgh the stories and brute force check if any of them match the set of images we have. If true, append True to the value of the the athlete name key thingy. False if otherwise.
+            
         """
         
 
