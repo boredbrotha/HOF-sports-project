@@ -1,0 +1,224 @@
+
+/*
+Universal CSS 
+---------------
+*/
+
+.App {
+  text-align: center;
+}
+
+.redText{
+  color: red;
+}
+
+.hofImage{
+  padding: 20px;
+}
+
+.submit-field>input{
+  margin-top: 15px;
+  border: 1px;
+  border-radius: 50%;
+  width: 140px;
+  height: 50px;
+  font-family: montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(15, 59, 10);
+  justify-content: center;
+}
+
+.input-field{
+  padding: 15px;
+  
+ }
+ 
+ .input-field>input[type="text"]{
+ 
+   width:75%;
+   height: 25px;
+   text-align: left !important;
+   color:#54606C !important;
+ }
+ 
+ .input-field>input[type="tel"]{
+ 
+   width:75%;
+   height: 25px;
+   text-align: left !important;
+   color:#54606C !important;
+ }
+ 
+ .input-field>input[type="email"]{
+ 
+   width:75%;
+   height: 25px;
+   text-align: left !important;
+   color:#54606C !important;
+ }
+ 
+ .input-field>input[type="password"]{
+ 
+   width:75%;
+   height: 25px;
+   text-align: left !important;
+   color:#54606C !important;
+ }
+ 
+ .input-field>input[type="button"]{
+ 
+   width:10%;
+   text-align: center !important;
+   color:#54606C !important;
+   display: flex;
+   border: 0px;
+   background-color: transparent;
+   margin-left: 50px;
+   color: rgb(81, 81, 243);
+ }
+ 
+ .input-field>label{
+ 
+   position:absolute;
+   margin-top: -25px;
+   font-size:20px;
+   font-style: normal;
+   font-weight: 400;
+   font-family: montserrat;
+   padding-top:3px;
+   margin-bottom: 10px;
+ 
+ }
+ 
+ .input-field>button{
+   width: 20%;
+ }
+
+
+/*
+Login Page CSS
+---------------
+*/
+
+.main{
+  padding-top: 5%;
+}
+
+.signup-box{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 550px;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.signup-box p{
+  font-family: montserrat;
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+.login-redirect{
+  margin: auto;
+  color:#54606C !important;
+  border: 0px;
+  background-color: transparent;
+
+  color: rgb(81, 81, 243);
+}
+
+
+/*
+Login Page CSS 
+---------------
+*/
+
+.login-box{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 550px;
+  margin: auto;
+  border: 2px solid black;
+
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-section{
+  display: inline;
+}
+
+.forgot-redirect{
+  color:#54606C !important;
+  border: 0px;
+  background-color: transparent;
+  color: rgb(81, 81, 243);
+  margin-right: 25%;
+}
+
+.signup-redirect{
+  color:#54606C !important;
+  border: 0px;
+  background-color: transparent;
+  color: rgb(81, 81, 243);
+  margin-left: 25%;
+}
+
+
+/*
+Forgot Page CSS 
+---------------
+*/
+.forgot-field>input[type = "email"]{
+  margin-top: 25px;
+  width:25%;
+  height: 25px;
+  text-align: left !important;
+  color:#54606C !important;
+}
+
+.back-to-login{
+  color:#54606C !important;
+  border: 0px;
+  background-color: transparent;
+  color: rgb(81, 81, 243);
+}
+
+
+/*
+Verify Page CSS
+---------------
+*/
+
+.verification-line{
+
+  margin-top: 25%;
+}
+
+
+
+/*
+Home Page CSS
+-------------
+*/
+.logout-button{
+  color:#54606C !important;
+  border: 0px;
+  background-color: transparent;
+  color: rgb(81, 81, 243);
+
+}
